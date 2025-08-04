@@ -504,3 +504,9 @@ El siguiente código fue usado para extraer los datos del clima:
 
 * Acerca del Proyecto
 Proyecto desarrollado para la asignatura de Arquitectura de Computadoras
+
+* Referencias
+
+[[https://youtu.be/AYaVr6Z-VoI][Video: Consumir API con Python]]
+
+[[https://www.youtube.com/shorts/p4aYX3d7qOE?feature=share][Short en YouTube]]
