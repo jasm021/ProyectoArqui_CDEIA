@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+<!-- 2025-08-04 Mon 14:47 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Clima en Dublín - Proyecto Final</title>
+<meta name="author" content="Jhon Solorzano, Said Bravo" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Clima en Dublín - Proyecto Final</h1>
+
+<div id="outline-container-org73d8a18" class="outline-2">
+<h2 id="org73d8a18">Introducción</h2>
+<div class="outline-text-2" id="text-org73d8a18">
+<p>
+Este sitio presenta datos meteorológicos recolectados de la API de OpenWeatherMap para la ciudad de Dublín.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc44bcbe" class="outline-2">
+<h2 id="orgc44bcbe">Datos Recientes</h2>
+<div class="outline-text-2" id="text-orgc44bcbe">
+<p>
+A continuación se muestran los datos más recientes obtenidos:
+</p>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>timestamp</th>
+      <th>ciudad</th>
+      <th>pais</th>
+      <th>temperatura_actual</th>
+      <th>sensacion_termica</th>
+      <th>temperatura_minima</th>
+      <th>temperatura_maxima</th>
+      <th>presion</th>
+      <th>humedad</th>
+      <th>descripcion_clima</th>
+      <th>estado_clima</th>
+      <th>velocidad_viento</th>
+      <th>direccion_viento</th>
+      <th>nubosidad</th>
+      <th>visibilidad</th>
+      <th>latitud</th>
+      <th>longitud</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-08-04 14:47:00</td>
+      <td>Dublin</td>
+      <td>IE</td>
+      <td>16.29</td>
+      <td>15.44</td>
+      <td>15.88</td>
+      <td>16.6</td>
+      <td>1016</td>
+      <td>56</td>
+      <td>algo de nubes</td>
+      <td>Clouds</td>
+      <td>10.8</td>
+      <td>270</td>
+      <td>20</td>
+      <td>10000</td>
+      <td>53.344</td>
+      <td>-6.2672</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orga617cb5" class="outline-2">
+<h2 id="orga617cb5">Tabla del CSV con Python</h2>
+<div class="outline-text-2" id="text-orga617cb5">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>timestamp</th>
+      <th>ciudad</th>
+      <th>pais</th>
+      <th>temperatura_actual</th>
+      <th>sensacion_termica</th>
+      <th>temperatura_minima</th>
+      <th>temperatura_maxima</th>
+      <th>presion</th>
+      <th>humedad</th>
+      <th>descripcion_clima</th>
+      <th>estado_clima</th>
+      <th>velocidad_viento</th>
+      <th>direccion_viento</th>
+      <th>nubosidad</th>
+      <th>visibilidad</th>
+      <th>latitud</th>
+      <th>longitud</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-08-04 14:43:02</td>
+      <td>Dublin</td>
+      <td>IE</td>
+      <td>16.29</td>
+      <td>15.44</td>
+      <td>15.88</td>
+      <td>16.6</td>
+      <td>1016</td>
+      <td>56</td>
+      <td>algo de nubes</td>
+      <td>Clouds</td>
+      <td>10.8</td>
+      <td>270</td>
+      <td>20</td>
+      <td>10000</td>
+      <td>53.344</td>
+      <td>-6.2672</td>
+    </tr>
+    <tr>
+      <td>2025-08-04 14:44:00</td>
+      <td>Dublin</td>
+      <td>IE</td>
+      <td>16.29</td>
+      <td>15.44</td>
+      <td>15.88</td>
+      <td>16.6</td>
+      <td>1016</td>
+      <td>56</td>
+      <td>algo de nubes</td>
+      <td>Clouds</td>
+      <td>10.8</td>
+      <td>270</td>
+      <td>20</td>
+      <td>10000</td>
+      <td>53.344</td>
+      <td>-6.2672</td>
+    </tr>
+    <tr>
+      <td>2025-08-04 14:45:00</td>
+      <td>Dublin</td>
+      <td>IE</td>
+      <td>16.29</td>
+      <td>15.44</td>
+      <td>15.88</td>
+      <td>16.6</td>
+      <td>1016</td>
+      <td>56</td>
+      <td>algo de nubes</td>
+      <td>Clouds</td>
+      <td>10.8</td>
+      <td>270</td>
+      <td>20</td>
+      <td>10000</td>
+      <td>53.344</td>
+      <td>-6.2672</td>
+    </tr>
+    <tr>
+      <td>2025-08-04 14:46:00</td>
+      <td>Dublin</td>
+      <td>IE</td>
+      <td>16.29</td>
+      <td>15.44</td>
+      <td>15.88</td>
+      <td>16.6</td>
+      <td>1016</td>
+      <td>56</td>
+      <td>algo de nubes</td>
+      <td>Clouds</td>
+      <td>10.8</td>
+      <td>270</td>
+      <td>20</td>
+      <td>10000</td>
+      <td>53.344</td>
+      <td>-6.2672</td>
+    </tr>
+    <tr>
+      <td>2025-08-04 14:47:00</td>
+      <td>Dublin</td>
+      <td>IE</td>
+      <td>16.29</td>
+      <td>15.44</td>
+      <td>15.88</td>
+      <td>16.6</td>
+      <td>1016</td>
+      <td>56</td>
+      <td>algo de nubes</td>
+      <td>Clouds</td>
+      <td>10.8</td>
+      <td>270</td>
+      <td>20</td>
+      <td>10000</td>
+      <td>53.344</td>
+      <td>-6.2672</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org7f82762" class="outline-2">
+<h2 id="org7f82762">Gráfica de Temperatura</h2>
+<div class="outline-text-2" id="text-org7f82762">
+<p>
+La siguiente gráfica muestra la evolución reciente de la temperatura actual en Dublín:
+</p>
+
+<img src="images/temperatura.png" width="600"/>
+</div>
+</div>
+
+
+<div id="outline-container-org7cd8e36" class="outline-2">
+<h2 id="org7cd8e36">Grafica de Humedad con respecto al tiempo</h2>
+<div class="outline-text-2" id="text-org7cd8e36">
+<img src="images/humedad.png" width="600"/>
+</div>
+</div>
+
+<div id="outline-container-org04ba345" class="outline-2">
+<h2 id="org04ba345">Arbol de archivos y subdirectorios</h2>
+<div class="outline-text-2" id="text-org04ba345">
+<pre class="example" id="orge385deb">
+.
+├── estilos.css
+├── images
+│   ├── humedad.png
+│   └── temperatura.png
+├── index.org
+├── index.org~
+└── public
+    ├── estilos.css
+    ├── images
+    │   ├── humedad.png
+    │   └── temperatura.png
+    ├── index.html
+    └── public
+        ├── images
+        │   ├── humedad.png
+        │   └── temperatura.png
+        └── public
+            ├── images
+            │   ├── humedad.png
+            │   └── temperatura.png
+            └── public
+                ├── images
+                │   ├── humedad.png
+                │   └── temperatura.png
+                └── public
+                    ├── images
+                    │   ├── humedad.png
+                    │   └── temperatura.png
+                    └── public
+                        └── images
+                            ├── humedad.png
+                            └── temperatura.png
+
+14 directories, 19 files
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-org26d1118" class="outline-2">
+<h2 id="org26d1118">Código Fuente</h2>
+<div class="outline-text-2" id="text-org26d1118">
+<p>
+El siguiente código fue usado para extraer los datos del clima:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #a020f0;">import</span> requests
+<span style="color: #a020f0;">import</span> csv
+<span style="color: #a020f0;">import</span> json
+<span style="color: #a020f0;">from</span> datetime <span style="color: #a020f0;">import</span> datetime
+<span style="color: #a020f0;">import</span> os
+
+<span style="color: #a020f0;">class</span> <span style="color: #228b22;">WeatherDataExtractor</span>:
+<span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">__init__</span>(<span style="color: #a020f0;">self</span>, api_key): <span style="color: #b22222;"># </span><span style="color: #b22222;">se inicia el extractor del API de OpenWeatherMap
+</span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">self</span>.<span style="color: #a0522d;">api_key</span> = api_key
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">self</span>.<span style="color: #a0522d;">base_url</span> = <span style="color: #8b2252;">"http://api.openweathermap.org/data/2.5/weather"</span>
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">get_weather_data</span>(<span style="color: #a020f0;">self</span>, city, country_code=<span style="color: #008b8b;">None</span>): <span style="color: #b22222;"># </span><span style="color: #b22222;">se obtienen los datos del clima de la ciudad
+</span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">try</span>:
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #b22222;"># </span><span style="color: #b22222;">Construir la query para la ciudad
+</span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">if</span> country_code:
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">location</span> = f<span style="color: #8b2252;">"</span>{city}<span style="color: #8b2252;">,</span>{country_code}<span style="color: #8b2252;">"</span>
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">else</span>:
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">location</span> = city
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #b22222;"># </span><span style="color: #b22222;">Par&#225;metros para la API
+</span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">params</span> = {
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #8b2252;">'q'</span>: location,
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #8b2252;">'appid'</span>: <span style="color: #a020f0;">self</span>.api_key,
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #8b2252;">'units'</span>: <span style="color: #8b2252;">'metric'</span>,  <span style="color: #b22222;"># </span><span style="color: #b22222;">Para obtener temperatura en Celsius
+</span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #8b2252;">'lang'</span>: <span style="color: #8b2252;">'es'</span>        <span style="color: #b22222;"># </span><span style="color: #b22222;">Para descripciones en espa&#241;ol
+</span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   }
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #b22222;"># </span><span style="color: #b22222;">se hace la petici&#243;n a la API
+</span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">response</span> = requests.get(<span style="color: #a020f0;">self</span>.base_url, params=params)
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   response.raise_for_status()  <span style="color: #b22222;"># </span><span style="color: #b22222;">Lanza excepci&#243;n si hay error HTTP
+</span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">return</span> response.json()
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">except</span> requests.exceptions.RequestException <span style="color: #a020f0;">as</span> e:
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #483d8b;">print</span>(f<span style="color: #8b2252;">"Error al obtener datos para </span>{city}<span style="color: #8b2252;">: </span>{e}<span style="color: #8b2252;">"</span>)
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">None</span>
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">except</span> json.JSONDecodeError <span style="color: #a020f0;">as</span> e:
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #483d8b;">print</span>(f<span style="color: #8b2252;">"Error al decodificar JSON para </span>{city}<span style="color: #8b2252;">: </span>{e}<span style="color: #8b2252;">"</span>)
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">None</span>
+<span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">extract_relevant_data</span>(<span style="color: #a020f0;">self</span>, weather_data): <span style="color: #b22222;"># </span><span style="color: #b22222;">se extraen lo datos mas relevantes 
+</span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">if</span> <span style="color: #a020f0;">not</span> weather_data:
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">None</span>
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">try</span>:
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #b22222;"># </span><span style="color: #b22222;">Extraer datos principales
+</span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">main_data</span> = weather_data.get(<span style="color: #8b2252;">'main'</span>, {})
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">weather_info</span> = weather_data.get(<span style="color: #8b2252;">'weather'</span>, [{}])[0]
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">wind_data</span> = weather_data.get(<span style="color: #8b2252;">'wind'</span>, {})
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">clouds_data</span> = weather_data.get(<span style="color: #8b2252;">'clouds'</span>, {})
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">sys_data</span> = weather_data.get(<span style="color: #8b2252;">'sys'</span>, {})
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #b22222;"># </span><span style="color: #b22222;">Crear diccionario con datos relevantes
+</span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">extracted_data</span> = {
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #8b2252;">'timestamp'</span>: datetime.now().strftime(<span style="color: #8b2252;">'%Y-%m-%d %H:%M:%S'</span>),
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #8b2252;">'ciudad'</span>: weather_data.get(<span style="color: #8b2252;">'name'</span>, <span style="color: #8b2252;">''</span>),
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #8b2252;">'pais'</span>: sys_data.get(<span style="color: #8b2252;">'country'</span>, <span style="color: #8b2252;">''</span>),
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #8b2252;">'temperatura_actual'</span>: main_data.get(<span style="color: #8b2252;">'temp'</span>, 0),
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #8b2252;">'sensacion_termica'</span>: main_data.get(<span style="color: #8b2252;">'feels_like'</span>, 0),
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #8b2252;">'temperatura_minima'</span>: main_data.get(<span style="color: #8b2252;">'temp_min'</span>, 0),
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #8b2252;">'temperatura_maxima'</span>: main_data.get(<span style="color: #8b2252;">'temp_max'</span>, 0),
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #8b2252;">'presion'</span>: main_data.get(<span style="color: #8b2252;">'pressure'</span>, 0),
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #8b2252;">'humedad'</span>: main_data.get(<span style="color: #8b2252;">'humidity'</span>, 0),
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #8b2252;">'descripcion_clima'</span>: weather_info.get(<span style="color: #8b2252;">'description'</span>, <span style="color: #8b2252;">''</span>),
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #8b2252;">'estado_clima'</span>: weather_info.get(<span style="color: #8b2252;">'main'</span>, <span style="color: #8b2252;">''</span>),
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #8b2252;">'velocidad_viento'</span>: wind_data.get(<span style="color: #8b2252;">'speed'</span>, 0),
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #8b2252;">'direccion_viento'</span>: wind_data.get(<span style="color: #8b2252;">'deg'</span>, 0),
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #8b2252;">'nubosidad'</span>: clouds_data.get(<span style="color: #8b2252;">'all'</span>, 0),
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #8b2252;">'visibilidad'</span>: weather_data.get(<span style="color: #8b2252;">'visibility'</span>, 0),
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #8b2252;">'latitud'</span>: weather_data.get(<span style="color: #8b2252;">'coord'</span>, {}).get(<span style="color: #8b2252;">'lat'</span>, 0),
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #8b2252;">'longitud'</span>: weather_data.get(<span style="color: #8b2252;">'coord'</span>, {}).get(<span style="color: #8b2252;">'lon'</span>, 0)
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   }
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">return</span> extracted_data
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">except</span> <span style="color: #228b22;">Exception</span> <span style="color: #a020f0;">as</span> e:
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #483d8b;">print</span>(f<span style="color: #8b2252;">"Error al procesar datos: </span>{e}<span style="color: #8b2252;">"</span>)
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">return</span> <span style="color: #008b8b;">None</span>
+<span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">save_to_csv</span>(<span style="color: #a020f0;">self</span>, data_list, filename=<span style="color: #8b2252;">'weather_data.csv'</span>): <span style="color: #b22222;">#</span><span style="color: #b22222;">guarda una lista de datos en un csv
+</span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">if</span> <span style="color: #a020f0;">not</span> data_list:
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #483d8b;">print</span>(<span style="color: #8b2252;">"No hay datos para guardar"</span>)
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">return</span>
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">try</span>:
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #b22222;"># </span><span style="color: #b22222;">Obtener las columnas del primer elemento
+</span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">fieldnames</span> = data_list[0].keys()
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #b22222;"># </span><span style="color: #b22222;">Verificar si el archivo ya existe
+</span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">file_exists</span> = os.path.isfile(filename)
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #b22222;"># </span><span style="color: #b22222;">Abrir archivo en modo append si existe, write si no existe
+</span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">mode</span> = <span style="color: #8b2252;">'a'</span> <span style="color: #a020f0;">if</span> file_exists <span style="color: #a020f0;">else</span> <span style="color: #8b2252;">'w'</span>
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">with</span> <span style="color: #483d8b;">open</span>(filename, mode, newline=<span style="color: #8b2252;">''</span>, encoding=<span style="color: #8b2252;">'utf-8'</span>) <span style="color: #a020f0;">as</span> csvfile:
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">writer</span> = csv.DictWriter(csvfile, fieldnames=fieldnames)
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #b22222;"># </span><span style="color: #b22222;">Escribir header solo si es un archivo nuevo
+</span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">if</span> <span style="color: #a020f0;">not</span> file_exists:
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   writer.writeheader()
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #b22222;"># </span><span style="color: #b22222;">Escribir los datos
+</span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   writer.writerows(data_list)
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #483d8b;">print</span>(f<span style="color: #8b2252;">"Datos guardados exitosamente en </span>{filename}<span style="color: #8b2252;">"</span>)
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">except</span> <span style="color: #228b22;">Exception</span> <span style="color: #a020f0;">as</span> e:
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #483d8b;">print</span>(f<span style="color: #8b2252;">"Error al guardar CSV: </span>{e}<span style="color: #8b2252;">"</span>)
+<span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">def</span> <span style="color: #0000ff;">get_dublin_weather</span>(<span style="color: #a020f0;">self</span>):
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #b22222;"># </span><span style="color: #b22222;">se obtienen datos del clima de Dubl&#237;n
+</span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #483d8b;">print</span>(<span style="color: #8b2252;">"Obteniendo datos del clima de Dubl&#237;n..."</span>)
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">weather_data</span> = <span style="color: #a020f0;">self</span>.get_weather_data(<span style="color: #8b2252;">'Dublin'</span>, <span style="color: #8b2252;">'IE'</span>)
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">return</span> <span style="color: #a020f0;">self</span>.extract_relevant_data(weather_data)
+
+<span style="color: #a020f0;">if</span> <span style="color: #483d8b;">__name__</span> == <span style="color: #8b2252;">"__main__"</span>:
+<span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">API_KEY</span> = <span style="color: #8b2252;">'162898c2cf4c7dee38295ecc67bc7ad8'</span>
+<span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">extractor</span> = WeatherDataExtractor(API_KEY)
+<span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">dublin_data</span> = extractor.get_dublin_weather()
+<span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">if</span> dublin_data:
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   extractor.save_to_csv([dublin_data], <span style="color: #8b2252;">'dublin_weather.csv'</span>)
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #483d8b;">print</span>(<span style="color: #8b2252;">"&#161;Datos de Dubl&#237;n guardados exitosamente!"</span>)
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #483d8b;">print</span>(f<span style="color: #8b2252;">"</span><span style="color: #008b8b;">\n</span><span style="color: #8b2252;">--- Datos actuales de Dubl&#237;n ---"</span>)
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #483d8b;">print</span>(f<span style="color: #8b2252;">"Temperatura: </span>{dublin_data['temperatura_actual']}<span style="color: #8b2252;">&#176;C"</span>)
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #483d8b;">print</span>(f<span style="color: #8b2252;">"Sensaci&#243;n t&#233;rmica: </span>{dublin_data['sensacion_termica']}<span style="color: #8b2252;">&#176;C"</span>)
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #483d8b;">print</span>(f<span style="color: #8b2252;">"Descripci&#243;n: </span>{dublin_data['descripcion_clima'].title()}<span style="color: #8b2252;">"</span>)
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #483d8b;">print</span>(f<span style="color: #8b2252;">"Humedad: </span>{dublin_data['humedad']}<span style="color: #8b2252;">%"</span>)
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #483d8b;">print</span>(f<span style="color: #8b2252;">"Viento: </span>{dublin_data['velocidad_viento']}<span style="color: #8b2252;"> m/s"</span>)
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #483d8b;">print</span>(f<span style="color: #8b2252;">"Timestamp: </span>{dublin_data['timestamp']}<span style="color: #8b2252;">"</span>)
+<span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">else</span>:
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #483d8b;">print</span>(<span style="color: #8b2252;">"Error: No se pudieron obtener los datos de Dubl&#237;n"</span>)
+<span style="background-color: #f2f2f2;"> </span>   
+<span style="background-color: #f2f2f2;"> </span>   <span style="color: #483d8b;">print</span>(<span style="color: #8b2252;">"</span><span style="color: #008b8b;">\n</span><span style="color: #8b2252;">Proceso completado!"</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org475fe91" class="outline-2">
+<h2 id="org475fe91">Acerca del Proyecto</h2>
+<div class="outline-text-2" id="text-org475fe91">
+<p>
+Proyecto desarrollado para la asignatura de Arquitectura de Computadoras
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Autor: Jhon Solorzano, Said Bravo</p>
+<p class="date">Created: 2025-08-04 Mon 14:47</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

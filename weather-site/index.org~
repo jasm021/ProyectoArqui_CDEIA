@@ -1,0 +1,457 @@
+#+TITLE: Clima en Dublín - Proyecto Final
+#+AUTHOR: Jhon Solorzano, Said Bravo
+#+LANGUAGE: es
+#+HTML_HEAD: <link rel="stylesheet" href="estilos.css">
+#+OPTIONS: toc:nil num:nil
+
+* Introducción
+Este sitio presenta datos meteorológicos recolectados de la API de OpenWeatherMap para la ciudad de Dublín.
+
+* Datos Recientes
+A continuación se muestran los datos más recientes obtenidos:
+
+#+BEGIN_SRC python :results value html :exports results
+import pandas as pd
+df = pd.read_csv("../dublin_weather.csv")
+return df.tail(1).to_html(index=False)
+#+END_SRC
+
+#+RESULTS:
+#+begin_export html
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>timestamp</th>
+      <th>ciudad</th>
+      <th>pais</th>
+      <th>temperatura_actual</th>
+      <th>sensacion_termica</th>
+      <th>temperatura_minima</th>
+      <th>temperatura_maxima</th>
+      <th>presion</th>
+      <th>humedad</th>
+      <th>descripcion_clima</th>
+      <th>estado_clima</th>
+      <th>velocidad_viento</th>
+      <th>direccion_viento</th>
+      <th>nubosidad</th>
+      <th>visibilidad</th>
+      <th>latitud</th>
+      <th>longitud</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-08-04 14:27:00</td>
+      <td>Dublin</td>
+      <td>IE</td>
+      <td>16.75</td>
+      <td>16.0</td>
+      <td>15.88</td>
+      <td>17.43</td>
+      <td>1016</td>
+      <td>58</td>
+      <td>algo de nubes</td>
+      <td>Clouds</td>
+      <td>10.8</td>
+      <td>270</td>
+      <td>20</td>
+      <td>10000</td>
+      <td>53.344</td>
+      <td>-6.2672</td>
+    </tr>
+  </tbody>
+</table>
+#+end_export
+
+* Tabla del CSV con Python
+
+#+BEGIN_SRC python :results value html :exports results
+import pandas as pd
+df = pd.read_csv("../dublin_weather.csv")
+return df.tail(5).to_html(index=False)
+#+END_SRC
+
+#+RESULTS:
+#+begin_export html
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>timestamp</th>
+      <th>ciudad</th>
+      <th>pais</th>
+      <th>temperatura_actual</th>
+      <th>sensacion_termica</th>
+      <th>temperatura_minima</th>
+      <th>temperatura_maxima</th>
+      <th>presion</th>
+      <th>humedad</th>
+      <th>descripcion_clima</th>
+      <th>estado_clima</th>
+      <th>velocidad_viento</th>
+      <th>direccion_viento</th>
+      <th>nubosidad</th>
+      <th>visibilidad</th>
+      <th>latitud</th>
+      <th>longitud</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025-08-04 14:23:02</td>
+      <td>Dublin</td>
+      <td>IE</td>
+      <td>17.28</td>
+      <td>16.58</td>
+      <td>16.44</td>
+      <td>17.43</td>
+      <td>1015</td>
+      <td>58</td>
+      <td>algo de nubes</td>
+      <td>Clouds</td>
+      <td>10.29</td>
+      <td>270</td>
+      <td>20</td>
+      <td>10000</td>
+      <td>53.344</td>
+      <td>-6.2672</td>
+    </tr>
+    <tr>
+      <td>2025-08-04 14:24:02</td>
+      <td>Dublin</td>
+      <td>IE</td>
+      <td>17.28</td>
+      <td>16.58</td>
+      <td>16.44</td>
+      <td>17.43</td>
+      <td>1015</td>
+      <td>58</td>
+      <td>algo de nubes</td>
+      <td>Clouds</td>
+      <td>10.29</td>
+      <td>270</td>
+      <td>20</td>
+      <td>10000</td>
+      <td>53.344</td>
+      <td>-6.2672</td>
+    </tr>
+    <tr>
+      <td>2025-08-04 14:25:03</td>
+      <td>Dublin</td>
+      <td>IE</td>
+      <td>17.28</td>
+      <td>16.58</td>
+      <td>16.44</td>
+      <td>17.43</td>
+      <td>1015</td>
+      <td>58</td>
+      <td>algo de nubes</td>
+      <td>Clouds</td>
+      <td>10.29</td>
+      <td>270</td>
+      <td>20</td>
+      <td>10000</td>
+      <td>53.344</td>
+      <td>-6.2672</td>
+    </tr>
+    <tr>
+      <td>2025-08-04 14:26:02</td>
+      <td>Dublin</td>
+      <td>IE</td>
+      <td>16.75</td>
+      <td>16.00</td>
+      <td>15.88</td>
+      <td>17.43</td>
+      <td>1016</td>
+      <td>58</td>
+      <td>algo de nubes</td>
+      <td>Clouds</td>
+      <td>10.80</td>
+      <td>270</td>
+      <td>20</td>
+      <td>10000</td>
+      <td>53.344</td>
+      <td>-6.2672</td>
+    </tr>
+    <tr>
+      <td>2025-08-04 14:27:00</td>
+      <td>Dublin</td>
+      <td>IE</td>
+      <td>16.75</td>
+      <td>16.00</td>
+      <td>15.88</td>
+      <td>17.43</td>
+      <td>1016</td>
+      <td>58</td>
+      <td>algo de nubes</td>
+      <td>Clouds</td>
+      <td>10.80</td>
+      <td>270</td>
+      <td>20</td>
+      <td>10000</td>
+      <td>53.344</td>
+      <td>-6.2672</td>
+    </tr>
+  </tbody>
+</table>
+#+end_export
+
+
+* Gráfica de Temperatura
+
+La siguiente gráfica muestra la evolución reciente de la temperatura actual en Dublín:
+
+#+BEGIN_SRC python :results none :exports none
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+
+os.makedirs("images", exist_ok=True)
+
+df = pd.read_csv("../dublin_weather.csv")
+df["timestamp"] = pd.to_datetime(df["timestamp"])
+
+fig, ax = plt.subplots(figsize=(8, 6))
+ax.plot(df["timestamp"], df["temperatura_actual"], marker="o", linestyle="-")
+ax.xaxis.set_major_locator(mdates.AutoDateLocator())
+ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d %H:%M'))
+plt.xticks(rotation=40)
+plt.grid()
+plt.title("Temperatura Actual vs Tiempo en Dublin")
+plt.xlabel("Fecha y hora")
+plt.ylabel("Temperatura (°C)")
+fig.tight_layout()
+
+plt.savefig("images/temperatura.png")
+plt.close()
+#+END_SRC
+
+#+BEGIN_SRC python :results value html :exports results
+return '<img src="images/temperatura.png" width="600"/>'
+#+END_SRC
+
+#+RESULTS:
+#+begin_export html
+<img src="images/temperatura.png" width="600"/>
+#+end_export
+
+
+#+BEGIN_SRC python :results output :exports none
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+
+os.makedirs("images", exist_ok=True)
+
+df = pd.read_csv("../dublin_weather.csv")
+df["timestamp"] = pd.to_datetime(df["timestamp"])
+
+fig, ax = plt.subplots(figsize=(8, 6))
+ax.plot(df["timestamp"], df["temperatura_actual"], marker="o", linestyle="-")
+ax.xaxis.set_major_locator(mdates.AutoDateLocator())
+ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d %H:%M'))
+plt.xticks(rotation=40)
+plt.grid()
+plt.title("Temperatura Actual vs Tiempo en Dublin")
+plt.xlabel("Fecha y hora")
+plt.ylabel("Temperatura (°C)")
+fig.tight_layout()
+
+fname = "images/temperatura.png"
+plt.savefig(fname)
+plt.close()
+
+print(f'<img src="{fname}" width="600"/>')
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+Python 3.11.12 | packaged by conda-forge | (main, Apr 10 2025, 22:23:25) [GCC 13.3.0]
+Type 'copyright', 'credits' or 'license' for more information
+IPython 9.2.0 -- An enhanced Interactive Python. Type '?' for help.
+Tip: You can change the editing mode of IPython to behave more like vi, or emacs.
+
+In [1]: 
+In [2]: 
+In [3]: 
+In [4]: 
+In [5]: 
+In [5]: 
+In [6]: 
+In [6]: 
+In [7]: 
+In [8]: 
+In [8]: Cannot install event loop hook for "qt" when running with `--simple-prompt`.
+NOTE: Tk is supported natively; use Tk apps and Tk backends with `--simple-prompt`.
+
+In [9]: Out[9]: [<matplotlib.lines.Line2D at 0x7f3aa9a02950>]
+
+In [10]: 
+In [11]: 
+In [12]: Out[12]: 
+(array([20303.625, 20303.75 , 20303.875, 20304.   , 20304.125, 20304.25 ,
+        20304.375, 20304.5  , 20304.625]),
+ [Text(20303.625, 0, '2025-08-03 15:00'),
+  Text(20303.75, 0, '2025-08-03 18:00'),
+  Text(20303.875, 0, '2025-08-03 21:00'),
+  Text(20304.0, 0, '2025-08-04 00:00'),
+  Text(20304.125, 0, '2025-08-04 03:00'),
+  Text(20304.25, 0, '2025-08-04 06:00'),
+  Text(20304.375, 0, '2025-08-04 09:00'),
+  Text(20304.5, 0, '2025-08-04 12:00'),
+  Text(20304.625, 0, '2025-08-04 15:00')])
+
+In [13]: 
+In [14]: Out[14]: Text(0.5, 1.0, 'Temperatura Actual vs Tiempo en Dublin')
+
+In [15]: Out[15]: Text(0.5, 0, 'Fecha y hora')
+
+In [16]: Out[16]: Text(0, 0.5, 'Temperatura (°C)')
+
+In [17]: 
+In [18]: 
+In [18]: 
+In [19]: 
+In [20]: 
+In [21]: 
+In [21]: <img src="images/temperatura.png" width="600"/>
+
+In [22]: Do you really want to exit ([y]/n)? 
+#+end_example
+
+* Grafica de Humedad con respecto al tiempo
+
+#+BEGIN_SRC python :results none :exports none
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+
+os.makedirs("images", exist_ok=True)
+df = pd.read_csv("../dublin_weather.csv")
+df["timestamp"] = pd.to_datetime(df["timestamp"])
+
+fig, ax = plt.subplots(figsize=(8, 6))
+ax.plot(df["timestamp"], df["humedad"], marker="o", linestyle="-", color="blue")
+ax.xaxis.set_major_locator(mdates.AutoDateLocator())
+ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d %H:%M'))
+plt.xticks(rotation=40)
+plt.grid()
+plt.title("Humedad vs Tiempo en Dublin")
+plt.xlabel("Fecha y hora")
+plt.ylabel("Humedad (%)")
+fig.tight_layout()
+plt.savefig("images/humedad.png")
+plt.close()
+#+END_SRC
+
+#+BEGIN_SRC python :results value html :exports results
+return '<img src="images/humedad.png" width="600"/>'
+#+END_SRC
+
+#+RESULTS:
+#+begin_export html
+<img src="images/humedad.png" width="600"/>
+#+end_export
+
+#+BEGIN_SRC python :results output :exports none
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+
+# Verificar y crear carpeta
+os.makedirs("images", exist_ok=True)
+
+# Leer CSV
+df = pd.read_csv("../dublin_weather.csv")
+df["timestamp"] = pd.to_datetime(df["timestamp"])
+
+# Crear gráfico de humedad
+fig, ax = plt.subplots(figsize=(8, 6))
+ax.plot(df["timestamp"], df["humedad"], marker="o", linestyle="-", color="blue")
+ax.xaxis.set_major_locator(mdates.AutoDateLocator())
+ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d %H:%M'))
+plt.xticks(rotation=40)
+plt.grid()
+plt.title("Humedad vs Tiempo en Dublin")
+plt.xlabel("Fecha y hora")
+plt.ylabel("Humedad (%)")
+fig.tight_layout()
+
+# Guardar imagen
+fname = "images/humedad.png"
+plt.savefig(fname)
+plt.close()
+
+print("Imagen generada en:", fname)
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+Python 3.11.12 | packaged by conda-forge | (main, Apr 10 2025, 22:23:25) [GCC 13.3.0]
+Type 'copyright', 'credits' or 'license' for more information
+IPython 9.2.0 -- An enhanced Interactive Python. Type '?' for help.
+Tip: IPython supports combining unicode identifiers, eg F\vec<tab> will become F⃗, useful for physics equations. Play with \dot \ddot and others.
+
+In [1]: 
+In [2]: 
+In [3]: 
+In [4]: 
+In [5]: 
+In [5]: 
+In [6]: 
+In [7]: 
+In [7]: 
+In [8]: 
+In [9]: 
+In [10]: 
+In [10]: 
+In [11]: Cannot install event loop hook for "qt" when running with `--simple-prompt`.
+NOTE: Tk is supported natively; use Tk apps and Tk backends with `--simple-prompt`.
+
+In [12]: Out[12]: [<matplotlib.lines.Line2D at 0x7f5aefc54850>]
+
+In [13]: 
+In [14]: 
+In [15]: Out[15]: 
+(array([20303.625, 20303.75 , 20303.875, 20304.   , 20304.125, 20304.25 ,
+        20304.375, 20304.5  , 20304.625]),
+ [Text(20303.625, 0, '2025-08-03 15:00'),
+  Text(20303.75, 0, '2025-08-03 18:00'),
+  Text(20303.875, 0, '2025-08-03 21:00'),
+  Text(20304.0, 0, '2025-08-04 00:00'),
+  Text(20304.125, 0, '2025-08-04 03:00'),
+  Text(20304.25, 0, '2025-08-04 06:00'),
+  Text(20304.375, 0, '2025-08-04 09:00'),
+  Text(20304.5, 0, '2025-08-04 12:00'),
+  Text(20304.625, 0, '2025-08-04 15:00')])
+
+In [16]: 
+In [17]: Out[17]: Text(0.5, 1.0, 'Humedad vs Tiempo en Dublin')
+
+In [18]: Out[18]: Text(0.5, 0, 'Fecha y hora')
+
+In [19]: Out[19]: Text(0, 0.5, 'Humedad (%)')
+
+In [20]: 
+In [21]: 
+In [21]: 
+In [22]: 
+In [23]: 
+In [24]: 
+In [25]: 
+In [25]: Imagen generada en: images/humedad.png
+
+In [26]: Do you really want to exit ([y]/n)? 
+#+end_example
+
+* Código Fuente
+El siguiente código fue usado para extraer los datos del clima:
+
+#+INCLUDE: "../ObtenerClima.py" src python
+
+* Acerca del Proyecto
+Proyecto desarrollado para la asignatura de Arquitectura de Computadoras

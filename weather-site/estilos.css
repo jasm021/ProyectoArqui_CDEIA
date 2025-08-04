@@ -1,0 +1,63 @@
+/* Fuente general */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    margin: 2rem auto;
+    max-width: 900px;
+    line-height: 1.6;
+    padding: 1rem;
+}
+
+/* Títulos */
+h1, h2, h3 {
+    color: #174ea6;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 0.2em;
+    margin-top: 2rem;
+}
+
+/* Tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+th, td {
+    text-align: center;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #e3f2fd;
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #f1f8ff;
+}
+
+/* Código fuente */
+pre.src {
+    background: #f0f0f0;
+    border-left: 4px solid #007acc;
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.9rem;
+}
+
+/* Footer o info final */
+footer {
+    margin-top: 3rem;
+    font-size: 0.85rem;
+    color: #666;
+    text-align: center;
+}
